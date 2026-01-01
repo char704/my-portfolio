@@ -31,4 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
   // Enable filters on work page
   initFilters();
 });
+function initReveal(){
+  const els = document.querySelectorAll(".panel, .cardproj, .hero, .section");
+  els.forEach(el => el.classList.add("reveal"));
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.classList.add("show");
+    });
+  }, { threshold: 0.12 });
+
+  els.forEach(el => io.observe(el));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderFeatured();
+  renderWork();
+  renderProjectDetail();
+  initFilters();
+  initReveal();
+});
 
