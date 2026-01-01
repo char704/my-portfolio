@@ -1,4 +1,43 @@
 :root{
+  --bg:#070811;
+  --text:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.68);
+  --faint:rgba(255,255,255,.42);
+
+  --panel:rgba(255,255,255,.06);
+  --panel2:rgba(255,255,255,.09);
+  --border:rgba(255,255,255,.14);
+
+  --a1:#a78bfa; /* violet */
+  --a2:#38bdf8; /* sky */
+  --a3:#22c55e; /* green */
+  --a4:#fb7185; /* pink */
+
+  --r:18px;
+  --r2:28px;
+  --max:1120px;
+
+  /* “Designer” system fonts: crisp + modern */
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  --display: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --shadow: 0 24px 80px rgba(0,0,0,.55);
+}
+
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--text);
+  background:
+    radial-gradient(900px 540px at 18% 18%, rgba(167,139,250,.26), transparent 60%),
+    radial-gradient(900px 540px at 80% 28%, rgba(56,189,248,.16), transparent 60%),
+    radial-gradient(900px 540px at 70% 85%, rgba(34,197,94,.10), transparent 60%),
+    linear-gradient(180deg, #04050b, var(--bg) 55%, #04050b);
+  overflow-x:hidden;
+}
+
+:root{
   --bg:#0b0d12; --text:rgba(255,255,255,.92); --muted:rgba(255,255,255,.68);
   --panel:rgba(255,255,255,.06); --border:rgba(255,255,255,.14);
   --a1:#8b5cf6; --a2:#38bdf8; --r:18px; --max:1120px;
