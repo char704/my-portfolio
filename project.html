@@ -1,1 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{Your Name} — Project</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/render.js"></script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html"><span class="brand-dot"></span><span>{Your Name}</span></a>
+      <nav class="nav">
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn" href="{Resume URL}" target="_blank" rel="noreferrer">{Resume} ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="project-hero" id="projectHero"></section>
+
+    <section class="section">
+      <div class="split">
+        <div class="panel" id="projectStory"></div>
+        <div class="panel" id="projectMeta"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Gallery</h2>
+        <p class="hint">{Add images per project in data.js}</p>
+      </div>
+      <div class="grid gallery" id="projectGallery"></div>
+    </section>
+
+    <section class="section cta">
+      <div class="panel cta-panel">
+        <h2>{Want something like this?}</h2>
+        <p class="muted">{Short CTA line. Example: If you’re building a brand with a pulse, I can help shape the visuals.}</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="mailto:{your@email.com}?subject={Project inquiry subject}">Email me →</a>
+          <a class="btn ghost" href="work.html">Back to Work</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© {Year} — {Your Name}</span>
+      <span class="muted">{Designed with intention. Built with curiosity.}</span>
+    </div>
+  </footer>
+</body>
+</html>
 
