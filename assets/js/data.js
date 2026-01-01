@@ -37,7 +37,7 @@ window.PORTFOLIO = {
       ],
 
       gallery: [
-        { src: "assets/img/cata-swin-1.png", alt: "Architecture overview of the hybrid CATA + Swin model" },
+        { src: "assets/0c8275ba087ddfbee1c2eebb46ad5806.jpg", alt: "Architecture overview of the hybrid CATA + Swin model" },
         { src: "assets/img/cata-swin-2.png", alt: "Visual comparison of super-resolution results" },
       ],
     },
