@@ -38,7 +38,7 @@ window.PORTFOLIO = {
 
       gallery: [
         { src: "assets/0c8275ba087ddfbee1c2eebb46ad5806.jpg", alt: "Architecture overview of the hybrid CATA + Swin model" },
-        { src: "assets/img/cata-swin-2.png", alt: "Visual comparison of super-resolution results" },
+        { src: "assets/2-figure2-1.png", alt: "Visual comparison of super-resolution results" },
       ],
     },
 
@@ -71,9 +71,7 @@ window.PORTFOLIO = {
       ],
 
       gallery: [
-        { src: "assets/img/kinetic-01.png", alt: "Brand system overview: logo, type scale, and layout grid" },
-        { src: "assets/img/kinetic-02.png", alt: "Social template set: carousel + story formats" },
-        { src: "assets/img/kinetic-03.png", alt: "Motion frames: title card transitions and timing rules" },
+        { src: "assets/8138fbd86197f17374d4a40a4eabbcf4.jpg", alt: "Brand system overview: logo, type scale, and layout grid" },
       ],
     },
   ],
