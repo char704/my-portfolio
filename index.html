@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{Your Name} — {Portfolio Title}</title>
+  <meta name="description" content="{One-line SEO description of your portfolio}" />
+  <style>
+    :root{
+      --bg: #0b0d12;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.08);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --faint: rgba(255,255,255,.42);
+      --border: rgba(255,255,255,.14);
+      --shadow: 0 24px 80px rgba(0,0,0,.45);
+      --r: 18px;
+      --r2: 26px;
+      --max: 1120px;
+
+      /* Accent colors */
+      --a1: #8b5cf6;
+      --a2: #22c55e;
+      --a3: #38bdf8;
+      --a4: #f97316;
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(900px 600px at 15% 15%, rgba(139,92,246,.28), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(56,189,248,.18), transparent 60%),
+        radial-gradient(900px 600px at 70% 85%, rgba(34,197,94,.14), transparent 60%),
+        linear-gradient(180deg, #070810, #0b0d12 55%, #070810);
+      overflow-x: hidden;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{ width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .grid{ display: grid; gap: 18px; }
+
+    /* Subtle noise overlay */
+    .noise{
+      pointer-events: none;
+      position: fixed; inset: 0;
+      opacity: .07;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    /* Header */
+    header{
+      position: sticky; top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(10,12,18,.6);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    .brand{
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; letter-spacing: .2px;
+    }
+    .dot{
+      width: 11px; height: 11px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--a1), var(--a3));
+      box-shadow: 0 0 0 6px rgba(139,92,246,.16);
+    }
+    .navlinks{
+      display: flex; gap: 14px; flex-wrap: wrap;
+      color: var(--muted); font-size: 14px;
+    }
+    .navlinks a{ padding: 8px 10px; border-radius: 999px; }
+    .navlinks a:hover{ background: rgba(255,255,255,.06); text-decoration: none; color: var(--text); }
+
+    .ctaBtn{
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(139,92,246,.18), rgba(56,189,248,.12));
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .ctaBtn:hover{ text-decoration: none; border-color: rgba(255,255,255,.22); }
+
+    /* Hero */
+    .hero{
+      padding: 58px 0 18px;
+    }
+    .heroTop{
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    @media (max-width: 980px){
+      .heroTop{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius: var(--r2);
+      box-shadow: var(--shadow);
+    }
+    .cardInner{ padding: 22px; }
+
+    .kicker{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(255,255,255,.62);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h1{
+      margin: 0 0 12px;
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .tagline{
+      margin: 0 0 18px;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+    .heroBadges{
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 18px;
+    }
+    .badge{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+    }
+
+    .sideCard .cardInner{
+      display: grid; gap: 14px;
+    }
+    .miniTitle{
+      font-weight: 700;
+      letter-spacing: .2px;
+      margin: 0;
+    }
+    .miniText{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .pillRow{
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .pill{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.74);
+    }
+    .linksRow{
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .linkBtn{
+      display: inline-flex;
+      gap: 8px; align-items: center;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-size: 14px;
+      color: rgba(255,255,255,.82);
+      text-decoration: none;
+    }
+    .linkBtn:hover{ text-decoration: none; border-color: rgba(255,255,255,.2); }
+
+    /* Sections */
+    section{ padding: 22px 0; }
+    .secHead{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .secTitle{
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
+    .secHint{
+      color: var(--faint);
+      font-size: 13px;
+      font-family: var(--mono);
+      letter-spacing: .04em;
+    }
+
+    /* About + DNA */
+    .twoCols{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 980px){
+      .twoCols{ grid-template-columns: 1fr; }
+    }
+    .bodyText{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    .dna{
+      display: grid; gap: 10px;
+      margin-top: 10px;
+    }
+    .dnaItem{
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 12px;
+      padding: 12px;
+      border-radius: var(--r);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+    .dnaItem b{ font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.78); }
+    .dnaItem span{ color: var(--muted); font-size: 14px; line-height: 1.5; }
+    @media (max-width: 520px){
+      .dnaItem{ grid-template-columns: 1fr; }
+    }
+
+    /* Projects */
+    .projects{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+    .proj{
+      grid-column: span 6;
+      border-radius: var(--r2);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      overflow: hidden;
+      box-shadow: 0 16px 60px rgba(0,0,0,.35);
+      transform: translateY(0);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+    .proj:hover{
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,.18);
+      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+    }
+    .proj .thumb{
+      aspect-ratio: 16/9;
+      background:
+        radial-gradient(700px 240px at 30% 30%, rgba(139,92,246,.35), transparent 60%),
+        radial-gradient(700px 240px at 70% 70%, rgba(56,189,248,.25), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .thumb span{
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.72);
+      background: rgba(0,0,0,.25);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+    }
+    .proj .content{ padding: 16px 18px 18px; }
+    .proj h3{ margin: 0 0 8px; font-size: 18px; letter-spacing: -0.01em; }
+    .meta{ display:flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 12px; }
+    .chip{
+      font-size: 12px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.72);
+      font-family: var(--mono);
+    }
+    .proj p{ margin: 0 0 12px; color: var(--muted); line-height: 1.6; font-size: 14px; }
+
+    details{
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 12px;
+    }
+    summary{
+      cursor: pointer;
+      list-style: none;
+      color: rgba(255,255,255,.84);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .arrow{
+      width: 10px; height: 10px;
+      border-right: 2px solid rgba(255,255,255,.7);
+      border-bottom: 2px solid rgba(255,255,255,.7);
+      transform: rotate(-45deg);
+      transition: transform .2s ease;
+      margin-left: auto;
+    }
+    details[open] .arrow{ transform: rotate(45deg); }
+    .caseList{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px){
+      .proj{ grid-column: span 12; }
+    }
+
+    /* Skills / Tools */
+    .skillGrid{
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+    }
+    @media (max-width: 980px){
+      .skillGrid{ grid-template-columns: 1fr; }
+    }
+    .list{
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 10px;
+    }
+    .tag{
+      padding: 9px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+    }
+
+    /* Testimonials */
+    .quotes{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 980px){
+      .quotes{ grid-template-columns: 1fr; }
+    }
+    blockquote{
+      margin: 0;
+      padding: 18px;
+      border-radius: var(--r2);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    blockquote p{
+      margin: 0 0 10px;
+      color: rgba(255,255,255,.82);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    blockquote cite{
+      font-style: normal;
+      color: var(--muted);
+      font-size: 13px;
+      font-family: var(--mono);
+    }
+
+    /* CTA */
+    .cta{
+      padding: 26px;
+      border-radius: var(--r2);
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(900px 260px at 20% 20%, rgba(139,92,246,.25), transparent 60%),
+        radial-gradient(900px 260px at 80% 80%, rgba(34,197,94,.14), transparent 60%),
+        rgba(255,255,255,.04);
+      box-shadow: 0 20px 70px rgba(0,0,0,.35);
+      display: grid;
+      gap: 12px;
+      align-items: start;
+    }
+    .cta h2{
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+    }
+    .cta p{ margin: 0; color: var(--muted); line-height: 1.6; }
+    .ctaActions{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+    .primary{
+      background: linear-gradient(135deg, rgba(139,92,246,.28), rgba(56,189,248,.16));
+      border-color: rgba(255,255,255,.18);
+    }
+
+    /* Footer */
+    footer{
+      padding: 24px 0 36px;
+      color: rgba(255,255,255,.55);
+      font-size: 13px;
+    }
+    .footerRow{
+      display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 18px;
+    }
+
+    /* Scroll reveal */
+    .reveal{ opacity: 0; transform: translateY(10px); }
+    .reveal.show{ opacity: 1; transform: translateY(0); transition: opacity .5s ease, transform .5s ease; }
+
+    /* Small helper */
+    .muted{ color: var(--muted); }
+    .mono{ font-family: var(--mono); }
+  </style>
+</head>
+
+<body>
+  <div class="noise"></div>
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>{Your Name}</div>
+      </div>
+
+      <nav class="navlinks">
+        <a href="#about">About</a>
+        <a href="#projects">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#testimonials">Words</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="ctaBtn" href="{Your Resume URL}" target="_blank" rel="noreferrer">
+        {Download Resume} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero reveal" id="top">
+      <div class="heroTop">
+        <div class="card">
+          <div class="cardInner">
+            <div class="kicker">{Role / Specialty}</div>
+            <h1>{I turn bold ideas into bold visuals.}</h1>
+            <p class="tagline">
+              {A 2–3 sentence intro that shows your vibe + value. Example: I design brand identities, campaigns, and editorial systems that feel intentional—where concept leads and craft follows.}
+            </p>
+
+            <div class="heroBadges">
+              <span class="badge">📍 {City, Country}</span>
+              <span class="badge">💼 {Open to: Full-time / Freelance}</span>
+              <span class="badge">✨ {Signature strength: Typography / Branding / Motion}</span>
+            </div>
+
+            <div class="linksRow" style="margin-top:16px;">
+              <a class="linkBtn primary" href="#projects">{See Selected Work} →</a>
+              <a class="linkBtn" href="{Behance URL}" target="_blank" rel="noreferrer">Behance ↗</a>
+              <a class="linkBtn" href="{LinkedIn URL}" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card sideCard">
+          <div class="cardInner">
+            <p class="miniTitle">{Now / Next}</p>
+            <p class="miniText">
+              {A short “currently” statement. Example: Currently crafting {type of work} for {client/industry}, and looking for a team that values concept, clarity, and a bit of mischief.}
+            </p>
+
+            <div class="pillRow">
+              <span class="pill">{Brand Identity}</span>
+              <span class="pill">{Campaign Design}</span>
+              <span class="pill">{Editorial}</span>
+              <span class="pill">{UI / Web}</span>
+              <span class="pill">{Motion}</span>
+            </div>
+
+            <div class="linksRow">
+              <a class="linkBtn" href="mailto:{your@email.com}">{your@email.com}</a>
+              <a class="linkBtn" href="{Portfolio URL}" target="_blank" rel="noreferrer">{Portfolio URL} ↗</a>
+            </div>
+
+            <p class="miniText">
+              <span class="mono">{Microcopy:}</span>
+              {If you’re hiring a designer who can think and craft—hello.}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT + DNA -->
+    <section class="reveal" id="about">
+      <div class="secHead">
+        <h2 class="secTitle">About</h2>
+        <div class="secHint">{Short. Human. Specific.}</div>
+      </div>
+
+      <div class="twoCols">
+        <div class="card">
+          <div class="cardInner">
+            <p class="kicker">{Your mini headline}</p>
+            <p class="bodyText">
+              {Write 4–7 lines that sound like you. What you believe about design, what you obsess over, what you’re known for. Keep it personal, not corporate.}
+            </p>
+            <p class="bodyText" style="margin-top:10px;">
+              {Optional: Background/education line. Example: With a foundation in {degree/experience}, I love shaping visual systems where typography does the talking and layouts breathe.}
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardInner">
+            <p class="kicker">Design DNA</p>
+            <div class="dna">
+              <div class="dnaItem">
+                <b>{Concept-driven}</b>
+                <span>{I start with meaning before aesthetics.}</span>
+              </div>
+              <div class="dnaItem">
+                <b>{Audience-first}</b>
+                <span>{Clarity wins. Confusion never converts.}</span>
+              </div>
+              <div class="dnaItem">
+                <b>{Craft-obsessed}</b>
+                <span>{Spacing, hierarchy, rhythm—small moves, big mood.}</span>
+              </div>
+              <div class="dnaItem">
+                <b>{Story-led}</b>
+                <span>{Every visual should say something—even silently.}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="reveal" id="projects">
+      <div class="secHead">
+        <h2 class="secTitle">Selected Work</h2>
+        <div class="secHint">{Show range + depth.}</div>
+      </div>
+
+      <div class="projects">
+        <!-- PROJECT 1 -->
+        <article class="proj reveal">
+          <div class="thumb">
+            <span>{Thumbnail Placeholder — add an image later}</span>
+          </div>
+          <div class="content">
+            <h3>{Project Name: Reinventing Modern Posters}</h3>
+            <div class="meta">
+              <span class="chip">{Category: Campaign / Print}</span>
+              <span class="chip">{Year}</span>
+              <span class="chip">{Client / Personal}</span>
+            </div>
+            <p>{One-sentence hook. Example: A poster series that turns typography into choreography—loud, clean, and impossible to ignore.}</p>
+
+            <details>
+              <summary>Case study <span class="arrow" aria-hidden="true"></span></summary>
+              <ul class="caseList">
+                <li><b>{Challenge:}</b> {What needed to change?}</li>
+                <li><b>{Idea:}</b> {Your core concept in one line.}</li>
+                <li><b>{Process:}</b> {Research → Sketch → Design → Refine}</li>
+                <li><b>{Outcome:}</b> {Result / impact / what you learned.}</li>
+                <li><b>{Skills:}</b> {Typography, Layout, Color, Art Direction}</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="proj reveal">
+          <div class="thumb">
+            <span>{Thumbnail Placeholder — add an image later}</span>
+          </div>
+          <div class="content">
+            <h3>{Project Name: Visual Identity for a Bold Startup}</h3>
+            <div class="meta">
+              <span class="chip">{Category: Branding}</span>
+              <span class="chip">{Year}</span>
+              <span class="chip">{Client}</span>
+            </div>
+            <p>{One-sentence hook. Example: A flexible identity system built to scale—logo, type, color, and a visual language with bite.}</p>
+
+            <details>
+              <summary>Case study <span class="arrow" aria-hidden="true"></span></summary>
+              <ul class="caseList">
+                <li><b>{Goal:}</b> {Brand needed to feel…}</li>
+                <li><b>{Strategy:}</b> {How you positioned it visually.}</li>
+                <li><b>{Deliverables:}</b> {Logo, guidelines, social kit, web assets.}</li>
+                <li><b>{Outcome:}</b> {Launch results / stakeholder feedback.}</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="proj reveal">
+          <div class="thumb">
+            <span>{Thumbnail Placeholder — add an image later}</span>
+          </div>
+          <div class="content">
+            <h3>{Project Name: Experimental Editorial Design}</h3>
+            <div class="meta">
+              <span class="chip">{Category: Editorial}</span>
+              <span class="chip">{Year}</span>
+              <span class="chip">{Personal}</span>
+            </div>
+            <p>{One-sentence hook. Example: An editorial layout experiment where hierarchy bends—without breaking readability.}</p>
+
+            <details>
+              <summary>Case study <span class="arrow" aria-hidden="true"></span></summary>
+              <ul class="caseList">
+                <li><b>{Constraint:}</b> {What rules you set.}</li>
+                <li><b>{Experiment:}</b> {What you explored (grid, type, pacing).}</li>
+                <li><b>{Result:}</b> {What worked + why.}</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <!-- PROJECT 4 -->
+        <article class="proj reveal">
+          <div class="thumb">
+            <span>{Thumbnail Placeholder — add an image later}</span>
+          </div>
+          <div class="content">
+            <h3>{Project Name: UI Landing Page with Personality}</h3>
+            <div class="meta">
+              <span class="chip">{Category: Web / UI}</span>
+              <span class="chip">{Year}</span>
+              <span class="chip">{Client / Personal}</span>
+            </div>
+            <p>{One-sentence hook. Example: A landing page that sells clarity—clean layout, strong type, and friendly motion.}</p>
+
+            <details>
+              <summary>Case study <span class="arrow" aria-hidden="true"></span></summary>
+              <ul class="caseList">
+                <li><b>{Problem:}</b> {Conversion / clarity / trust needed.}</li>
+                <li><b>{Design choices:}</b> {Hierarchy, spacing, CTA strategy.}</li>
+                <li><b>{Outcome:}</b> {Results or what you’d improve next.}</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS / TOOLS -->
+    <section class="reveal" id="skills">
+      <div class="secHead">
+        <h2 class="secTitle">Skills & Tools</h2>
+        <div class="secHint">{Readable. Scannable. Honest.}</div>
+      </div>
+
+      <div class="skillGrid">
+        <div class="card">
+          <div class="cardInner">
+            <p class="kicker">Skills</p>
+            <p class="bodyText">{A short skills sentence. Example: I balance concept, typography, and systems thinking—then sweat the details until it feels inevitable.}</p>
+            <div class="list">
+              <span class="tag">{Visual Identity}</span>
+              <span class="tag">{Typography}</span>
+              <span class="tag">{Layout Systems}</span>
+              <span class="tag">{Art Direction}</span>
+              <span class="tag">{Editorial}</span>
+              <span class="tag">{Web / UI}</span>
+              <span class="tag">{Motion}</span>
+              <span class="tag">{Presentation Design}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardInner">
+            <p class="kicker">Tools</p>
+            <div class="list">
+              <span class="tag">{Figma}</span>
+              <span class="tag">{Illustrator}</span>
+              <span class="tag">{Photoshop}</span>
+              <span class="tag">{InDesign}</span>
+              <span class="tag">{After Effects}</span>
+              <span class="tag">{Blender}</span>
+              <span class="tag">{Webflow}</span>
+              <span class="tag">{Notion}</span>
+            </div>
+            <p class="miniText" style="margin-top:10px;">
+              <span class="mono">{Bonus:}</span> {Add your strongest “signature tool” or method. Example: Type systems + grids + ruthless simplification.}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="reveal" id="testimonials">
+      <div class="secHead">
+        <h2 class="secTitle">Words From Humans</h2>
+        <div class="secHint">{Optional, but persuasive.}</div>
+      </div>
+
+      <div class="quotes">
+        <blockquote class="reveal">
+          <p>“{Short testimonial about your design thinking / execution / collaboration.}”</p>
+          <cite>— {Name}, {Role / Company}</cite>
+        </blockquote>
+        <blockquote class="reveal">
+          <p>“{Another quote, preferably outcome-focused.}”</p>
+          <cite>— {Name}, {Role / Company}</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CONTACT / CTA -->
+    <section class="reveal" id="contact">
+      <div class="secHead">
+        <h2 class="secTitle">Let’s Work Together</h2>
+        <div class="secHint">{Make it easy to say yes.}</div>
+      </div>
+
+      <div class="cta reveal">
+        <h2>{Call-to-action headline. Example: Want design that feels inevitable?}</h2>
+        <p>{Short CTA paragraph. Example: If you’re building a brand, campaign, or product that needs clarity and character, I’d love to help shape the visual story.}</p>
+
+        <div class="ctaActions">
+          <a class="linkBtn primary" href="mailto:{your@email.com}?subject={Subject line for email}">
+            Email me → {your@email.com}
+          </a>
+          <a class="linkBtn" href="{LinkedIn URL}" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a class="linkBtn" href="{Behance URL}" target="_blank" rel="noreferrer">Behance ↗</a>
+          <a class="linkBtn" href="{Resume URL}" target="_blank" rel="noreferrer">Resume ↗</a>
+        </div>
+
+        <p class="miniText">
+          <span class="mono">{Microcopy:}</span> {Fast reply. Zero fluff. Good vibes.}
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footerRow">
+        <div>© {Year} — {Your Name}</div>
+        <div>{Designed with intention. Built with curiosity.}</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
