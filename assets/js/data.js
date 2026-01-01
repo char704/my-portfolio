@@ -1,52 +1,28 @@
-// Edit this file only. Everything renders from here.
+{
+  id: "hybrid-cata-swin",
+  title: "Hybrid CATA + Swin Transformer for Image Super-Resolution",
+  category: "campaign",
+  year: "2025",
+  client: "Personal Research Project",
+  tagline: "A hybrid attention-based model combining CATA and Swin Transformer to improve perceptual quality and structural fidelity in super-resolution tasks.",
 
-window.PORTFOLIO = {
-  profile: {
-    name: "{Your Name}",
-    email: "{your@email.com}",
-    role: "{Role / Specialty}",
+  story: {
+    challenge: "Traditional CNN-based super-resolution models struggle to preserve fine textures while maintaining global consistency at higher scaling factors.",
+    idea: "Combine CATA’s channel-aware attention with Swin Transformer’s hierarchical self-attention to capture both local detail and long-range dependency.",
+    process: "Literature review → Architecture design → Model training → Evaluation on benchmark datasets → Qualitative and quantitative analysis",
+    outcome: "The hybrid model showed improved PSNR/SSIM and noticeably sharper textures compared to baseline CNN and standalone Transformer models."
   },
 
-  projects: [
-    {
-      id: "poster-series",
-      title: "{Project Name: Reinventing Modern Posters}",
-      category: "campaign", // branding | campaign | editorial | ui
-      year: "{Year}",
-      client: "{Client / Personal}",
-      tagline: "{One-sentence hook for cards.}",
-      thumbnailLabel: "{Thumbnail Placeholder}",
-      story: {
-        challenge: "{What problem existed?}",
-        idea: "{Core idea in one line.}",
-        process: "{Research → Sketch → Design → Refine → Deliver}",
-        outcome: "{Impact / result / learning}"
-      },
-      skills: ["{Typography}", "{Layout}", "{Color}", "{Art Direction}"],
-      gallery: [
-        { src: "assets/img/{image1}.jpg", alt: "{Alt text 1}" },
-        { src: "assets/img/{image2}.jpg", alt: "{Alt text 2}" },
-        { src: "assets/img/{image3}.jpg", alt: "{Alt text 3}" }
-      ]
-    },
+  skills: [
+    "Deep Learning",
+    "Attention Mechanisms",
+    "Transformer Architecture",
+    "Super-Resolution",
+    "Model Evaluation"
+  ],
 
-    {
-      id: "brand-startup",
-      title: "{Project Name: Visual Identity for a Bold Startup}",
-      category: "branding",
-      year: "{Year}",
-      client: "{Client}",
-      tagline: "{One-sentence hook.}",
-      thumbnailLabel: "{Thumbnail Placeholder}",
-      story: {
-        challenge: "{What the brand needed}",
-        idea: "{Positioning translated into visuals}",
-        process: "{Moodboards → Logo → System → Guidelines}",
-        outcome: "{Launch feedback / results}"
-      },
-      skills: ["{Brand Systems}", "{Logo Design}", "{Guidelines}", "{Social Kit}"],
-      gallery: []
-    }
+  gallery: [
+    { src: "assets/img/cata-swin-1.png", alt: "Architecture overview of the hybrid CATA + Swin model" },
+    { src: "assets/img/cata-swin-2.png", alt: "Visual comparison of super-resolution results" }
   ]
-};
-
+}
