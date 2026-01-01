@@ -1,1 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{Your Name} — Work</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/render.js"></script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html"><span class="brand-dot"></span><span>{Your Name}</span></a>
+      <nav class="nav">
+        <a class="active" href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn" href="{Resume URL}" target="_blank" rel="noreferrer">{Resume} ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="pagehead">
+      <h1>Selected Work</h1>
+      <p class="lead">{One short line about your selection philosophy. Example: Range in style, consistency in intent.}</p>
+
+      <div class="filters">
+        <button class="chip" data-filter="all">All</button>
+        <button class="chip" data-filter="branding">{Branding}</button>
+        <button class="chip" data-filter="campaign">{Campaign}</button>
+        <button class="chip" data-filter="editorial">{Editorial}</button>
+        <button class="chip" data-filter="ui">{UI/Web}</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div id="workGrid" class="grid cards"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© {Year} — {Your Name}</span>
+      <span class="muted">{Microcopy: Fast reply. Zero fluff. Good vibes.}</span>
+    </div>
+  </footer>
+</body>
+</html>
 
