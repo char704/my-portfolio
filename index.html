@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Nguyen Thanh Phuong — CS &amp; AI Portfolio</title>
 <meta name="description" content="Final-year CS student specializing in AI Engineering, Data Analysis, DevOps, and IT Support. Based in Ho Chi Minh City."/>
+<meta property="og:title" content="Nguyen Thanh Phuong — CS &amp; AI Portfolio"/>
+<meta property="og:description" content="Final-year CS student specializing in AI Engineering, Data Analysis, DevOps, and IT Support. Based in Ho Chi Minh City."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://char704.github.io/"/>
+<meta property="og:image" content="https://char704.github.io/assets/preview.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Nguyen Thanh Phuong — CS &amp; AI Portfolio"/>
+<meta name="twitter:description" content="Final-year CS student specializing in AI Engineering, Data Analysis, DevOps, and IT Support. Based in Ho Chi Minh City."/>
+<meta name="twitter:image" content="https://char704.github.io/assets/preview.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
@@ -35,6 +44,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 
+/* ── Accessibility ── */
+.skip-link{position:absolute;left:1rem;top:-3rem;background:var(--teal);color:var(--bg);padding:.5rem .8rem;border-radius:6px;font-weight:700;text-decoration:none;z-index:1000;transition:top .2s}
+.skip-link:focus{top:1rem}
+
 /* ── Nav ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 5%;transition:all .3s;border-bottom:1px solid transparent}
 nav.scrolled{background:rgba(8,12,22,.88);backdrop-filter:blur(12px);border-bottom-color:var(--border)}
@@ -43,6 +56,7 @@ nav.scrolled{background:rgba(8,12,22,.88);backdrop-filter:blur(12px);border-bott
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:var(--text-sec);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--teal)}
+.nav-links a:focus-visible,.nav-cta:focus-visible,.btn-primary:focus-visible,.btn-outline:focus-visible,.contact-link:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:8px}
 .nav-cta{background:transparent;border:1px solid var(--teal);color:var(--teal);padding:.45rem 1.1rem;border-radius:6px;font-family:var(--font-body);font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s}
 .nav-cta:hover{background:var(--teal);color:var(--bg)}
 
@@ -184,6 +198,7 @@ footer p a:hover{color:var(--teal)}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#about">Skip to main content</a>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -195,7 +210,7 @@ footer p a:hover{color:var(--teal)}
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a class="nav-cta" href="assets/cv_data_intern.pdf" target="_blank">Resume ↗</a>
+  <a class="nav-cta" href="assets/cv_data_intern.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
 </nav>
 
 <!-- HERO -->
@@ -271,7 +286,7 @@ footer p a:hover{color:var(--teal)}
       <div class="highlight-box">
         <p><span>→</span> Open University, Ho Chi Minh City &nbsp;·&nbsp; B.Sc. Computer Science</p>
         <p><span>→</span> TOEIC 700–750 &nbsp;·&nbsp; Native Vietnamese</p>
-        <p><span>→</span> GitHub: <a href="https://github.com/char704" target="_blank" style="color:var(--teal);text-decoration:none">github.com/char704</a></p>
+        <p><span>→</span> GitHub: <a href="https://github.com/char704" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none">github.com/char704</a></p>
       </div>
       <div class="badges-row">
         <span class="badge active">🟢 Open to Full-time</span>
