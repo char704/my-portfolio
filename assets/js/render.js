@@ -14,7 +14,11 @@ function projectCard(p) {
 
   return el("article", { class: "cardproj", "data-category": p.category }, [
     el("a", { class: "cardproj-link", href }, [
-      el("div", { class: "thumb" }, [el("span", { class: "thumb-label" }, [p.thumbnailLabel || ""])]),
+      el("div", { class: "thumb" }, [
+        p.gallery?.[0]?.src
+          ? el("img", { class: "thumb-img", src: p.gallery[0].src, alt: p.gallery?.[0]?.alt || p.title })
+          : el("span", { class: "thumb-label" }, [p.thumbnailLabel || "Project Preview"])
+      ]),
       el("div", { class: "cardproj-body" }, [
         el("h3", {}, [p.title]),
         el("p", { class: "muted" }, [p.tagline]),
