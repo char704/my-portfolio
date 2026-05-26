@@ -1,78 +1,76 @@
-// Edit this file only. Everything renders from here.
-
 window.PORTFOLIO = {
   profile: {
     name: "Nguyen Thanh Phuong",
     email: "nthanhphuong2112004@gmail.com",
-    role: "Motion & Visual Designer",
+    role: "Final-year Computer Science Student",
   },
 
   projects: [
     {
-      id: "hybrid-cata-swin",
-      title: "Hybrid CATA + Swin Transformer for Image Super-Resolution",
-      category: "campaign",
+      id: "adaptive-catanet",
+      title: "AdaptiveCATANet for Lightweight Image Super-Resolution",
+      category: "ai",
       year: "2025",
-      client: "Personal Research Project",
+      client: "University Research Project",
       tagline:
-        "A hybrid attention-based model combining CATA and Swin Transformer to improve perceptual quality and structural fidelity in super-resolution tasks.",
-
+        "Designed an adaptive token-allocation architecture that improves image reconstruction quality while keeping the model lightweight.",
       story: {
         challenge:
-          "Traditional CNN-based super-resolution models struggle to preserve fine textures while maintaining global consistency at higher scaling factors.",
+          "Improve single-image super-resolution performance without making the model too heavy for practical deployment.",
         idea:
-          "Combine CATA’s channel-aware attention with Swin Transformer’s hierarchical self-attention to capture both local detail and long-range dependency.",
+          "Built AdaptiveTAB with a token predictor and soft-selection to combine K=16 and K=64 branches more efficiently.",
         process:
-          "Literature review → Architecture design → Model training → Evaluation on benchmark datasets → Qualitative and quantitative analysis",
+          "Integrated channel attention, SiLU activation, Charbonnier loss, and sparsity loss; then trained and evaluated for representation quality and stability.",
         outcome:
-          "The hybrid model showed improved PSNR/SSIM and noticeably sharper textures compared to baseline CNN and standalone Transformer models.",
+          "Produced sharper detail reconstruction and stronger training stability, earning a Consolation Prize in the 2025 university research competition.",
       },
-
-      skills: [
-        "Deep Learning",
-        "Attention Mechanisms",
-        "Transformer Architecture",
-        "Super-Resolution",
-        "Model Evaluation",
-      ],
-
+      skills: ["PyTorch", "Computer Vision", "Attention Mechanisms", "Model Optimization", "Research"],
       gallery: [
-        { src: "assets/0c8275ba087ddfbee1c2eebb46ad5806.jpg", alt: "Architecture overview of the hybrid CATA + Swin model" },
-        { src: "assets/2-Figure2-1.png", alt: "Visual comparison of super-resolution results" },
+        { src: "assets/0c8275ba087ddfbee1c2eebb46ad5806.jpg", alt: "AdaptiveCATANet model architecture overview" },
+        { src: "assets/2-Figure2-1.png", alt: "Super-resolution visual comparison results" }
       ],
     },
-
     {
-      id: "kinetic-brand-launch",
-      title: "Kinetic Brand Launch Kit — Motion-Ready Identity System",
-      category: "branding",
-      year: "2024",
-      client: "Concept Project",
+      id: "mlp-vs-kan",
+      title: "Fair Comparison of MLP and KAN",
+      category: "data",
+      year: "2025",
+      client: "Academic Benchmark Study",
       tagline:
-        "A modular identity system designed for digital-first brands—built to stay consistent across social, UI, and motion.",
-
+        "Built a controlled experimental framework to compare MLP and KAN performance without evaluation bias.",
       story: {
         challenge:
-          "Many early-stage brands look inconsistent across platforms: the logo works, but the system breaks in social posts, UI headers, and short motion pieces.",
+          "Model comparisons are often skewed by inconsistent training settings, making conclusions unreliable.",
         idea:
-          "Create a flexible visual system centered on typography rhythm + a motion grammar—so the brand stays recognizable even when the layout changes.",
+          "Standardized optimizer, learning rate, batch size, and architecture conditions across tasks.",
         process:
-          "Reference audit → moodboard → type + grid system → color + components → motion rules → mockups for social, UI, and short animations",
+          "Evaluated function approximation and MNIST classification while tracking convergence, FLOPs, parameter count, and learning behavior.",
         outcome:
-          "Delivered a cohesive kit (logo lockups, grid, type scale, color, social templates, UI header patterns, motion guidelines) that keeps the brand consistent and fast to deploy.",
+          "Delivered a balanced comparison that clarified trade-offs between accuracy, efficiency, and training dynamics.",
       },
-
-      skills: [
-        "Brand System Design",
-        "Typography & Layout",
-        "Art Direction",
-        "Motion Guidelines",
-        "Template Design",
-      ],
-
-      gallery: [
-        { src: "assets/8138fbd86197f17374d4a40a4eabbcf4.jpg", alt: "Brand system overview: logo, type scale, and layout grid" },
-      ],
+      skills: ["Python", "TensorFlow", "Scikit-learn", "Model Evaluation", "Data Visualization"],
+      gallery: [{ src: "assets/img/test.png", alt: "Model comparison experiment visualization" }],
+    },
+    {
+      id: "sales-profit-analysis",
+      title: "Sales & Profitability Analysis (E-commerce Dataset)",
+      category: "analytics",
+      year: "2024",
+      client: "Data Analysis Project",
+      tagline:
+        "Transformed raw sales data into pricing and profitability insights to support smarter product decisions.",
+      story: {
+        challenge:
+          "Raw product and pricing data lacked structure for clear business decision-making.",
+        idea:
+          "Cleaned and transformed data, then combined EDA and SQL aggregation for category-level insight.",
+        process:
+          "Used Python (Pandas/NumPy/Seaborn) and SQL to analyze discount patterns, customer behavior, and product performance.",
+        outcome:
+          "Generated recommendations for pricing strategy and product focus to improve estimated profitability.",
+      },
+      skills: ["Python", "SQL", "Pandas", "EDA", "Business Analysis"],
+      gallery: [{ src: "assets/8138fbd86197f17374d4a40a4eabbcf4.jpg", alt: "E-commerce data dashboard and analysis snapshot" }],
     },
   ],
 };
