@@ -1,21 +1,21 @@
 :root{
-  --font-display:'Space Grotesk',sans-serif;
-  --font-body:'Inter',sans-serif;
-  --font-mono:'JetBrains Mono',monospace;
+  --font-display:Arial, Helvetica, sans-serif;
+  --font-body:Arial, Helvetica, sans-serif;
+  --font-mono:"Courier New", Courier, monospace;
 
-  --bg:#070811;
-  --text:rgba(255,255,255,.92);
-  --muted:rgba(255,255,255,.68);
-  --faint:rgba(255,255,255,.42);
+  --bg:#eef7fb;
+  --text:#1d2a35;
+  --muted:#52616d;
+  --faint:#7d8a94;
 
-  --panel:rgba(255,255,255,.06);
-  --panel2:rgba(255,255,255,.09);
-  --border:rgba(255,255,255,.14);
+  --panel:rgba(255,255,255,.82);
+  --panel2:rgba(255,255,255,.94);
+  --border:rgba(40,86,112,.18);
 
-  --a1:#a78bfa; /* violet */
-  --a2:#38bdf8; /* sky */
-  --a3:#22c55e; /* green */
-  --a4:#fb7185; /* pink */
+  --a1:#0ea5a4; /* teal */
+  --a2:#2563eb; /* blue */
+  --a3:#16a34a; /* green */
+  --a4:#f59e0b; /* amber */
 
   --r:18px;
   --r2:28px;
@@ -26,7 +26,7 @@
   --display: var(--font-display);
   --mono: var(--font-mono);
 
-  --shadow: 0 24px 80px rgba(0,0,0,.55);
+  --shadow: 0 24px 70px rgba(38,72,92,.16);
 }
 
 body{
@@ -34,17 +34,17 @@ body{
   font-family:var(--sans);
   color:var(--text);
   background:
-    radial-gradient(900px 540px at 18% 18%, rgba(167,139,250,.26), transparent 60%),
-    radial-gradient(900px 540px at 80% 28%, rgba(56,189,248,.16), transparent 60%),
-    radial-gradient(900px 540px at 70% 85%, rgba(34,197,94,.10), transparent 60%),
-    linear-gradient(180deg, #04050b, var(--bg) 55%, #04050b);
+    radial-gradient(900px 540px at 18% 18%, rgba(14,165,164,.18), transparent 60%),
+    radial-gradient(900px 540px at 80% 28%, rgba(37,99,235,.12), transparent 60%),
+    radial-gradient(900px 540px at 70% 85%, rgba(245,158,11,.12), transparent 60%),
+    linear-gradient(180deg, #f8fcff, var(--bg) 55%, #e7f3f8);
   overflow-x:hidden;
 }
 
 :root{
-  --bg:#0b0d12; --text:rgba(255,255,255,.92); --muted:rgba(255,255,255,.68);
-  --panel:rgba(255,255,255,.06); --border:rgba(255,255,255,.14);
-  --a1:#8b5cf6; --a2:#38bdf8; --r:18px; --max:1120px;
+  --bg:#eef7fb; --text:#1d2a35; --muted:#52616d;
+  --panel:rgba(255,255,255,.82); --border:rgba(40,86,112,.18);
+  --a1:#0ea5a4; --a2:#2563eb; --r:18px; --max:1120px;
   --mono: var(--font-mono);
   --sans: var(--font-body);
 }
@@ -53,9 +53,9 @@ body{
 body{
   margin:0; font-family:var(--sans); color:var(--text); background:var(--bg);
   background:
-    radial-gradient(900px 600px at 15% 15%, rgba(139,92,246,.25), transparent 60%),
-    radial-gradient(900px 600px at 80% 30%, rgba(56,189,248,.18), transparent 60%),
-    linear-gradient(180deg, #070810, #0b0d12 55%, #070810);
+    radial-gradient(900px 600px at 15% 15%, rgba(14,165,164,.16), transparent 60%),
+    radial-gradient(900px 600px at 80% 30%, rgba(37,99,235,.12), transparent 60%),
+    linear-gradient(180deg, #f8fcff, #eef7fb 55%, #e7f3f8);
 }
 a{color:inherit}
 .wrap{width:min(var(--max), calc(100% - 44px)); margin:0 auto}
@@ -278,3 +278,43 @@ button.chip{cursor:pointer}
   object-fit:cover;
   display:block;
 }
+
+/* Light Arial theme overrides */
+.site-header{
+  background:rgba(248,252,255,.82);
+  border-bottom-color:rgba(40,86,112,.14);
+}
+.nav a{color:var(--muted)}
+.nav a:hover,.nav a.active{background:rgba(14,165,164,.10);color:var(--text)}
+.btn{
+  background:rgba(255,255,255,.72);
+  color:var(--text);
+  border-color:var(--border);
+}
+.btn.primary{
+  background:linear-gradient(135deg, rgba(14,165,164,.18), rgba(37,99,235,.12));
+}
+.kicker,.hint,.chip,.thumb-label,.dna b,.badge,.site-footer,.footer-inner,.bullets,.tag{color:var(--muted)}
+.lead,.panel p,.cardproj-body p,.dna span,.muted{color:var(--muted)}
+.panel,.cardproj{
+  background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+  border-color:var(--border);
+}
+.cardproj:hover{border-color:rgba(14,165,164,.30)}
+.chip,.badge,.tag{
+  background:rgba(255,255,255,.66);
+  border-color:var(--border);
+}
+.thumb{
+  background:
+    radial-gradient(700px 240px at 30% 30%, rgba(14,165,164,.18), transparent 60%),
+    radial-gradient(700px 240px at 70% 70%, rgba(37,99,235,.14), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.58));
+  border-bottom-color:var(--border);
+}
+.thumb-label{
+  background:rgba(255,255,255,.72);
+  border-color:var(--border);
+}
+.footer-inner{border-top-color:var(--border)}
+.textlink{color:#2563eb}
